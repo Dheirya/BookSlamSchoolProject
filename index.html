@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://cdn.tailwindcss.com"></script>
+      <style>
+        .section-1 {
+             background-color: black;
+             color: white;
+             min-height: 88vh;
+             position: relative;
+        }
+         .bottom-spikes:after {
+             background: black;
+             content: "";
+             height: 100px;
+             position: absolute;
+					   margin-top: -1px;
+             top: 100%;
+             left: 0;
+             right: 0;
+             clip-path: polygon( 0 0, 2.5% 60%, 5% 0, 7.5% 70%, 10% 0, 12.5% 55%, 15% 0, 17.5% 40%, 20% 0, 22.5% 69%, 25% 0, 27.5% 88%, 30% 0, 32.5% 78%, 35% 0, 37.5% 69%, 40% 0, 42.5% 65%, 45% 0, 47.5% 73%, 50% 0, 52.5% 45%, 55% 0, 57.5% 72%, 60% 0, 62.5% 69%, 65% 0, 67.5% 62%, 70% 0, 72.5% 50%, 75% 0, 77.5% 73%, 80% 0, 82.5% 99%, 85% 0, 87.5% 72%, 90% 0, 92.5% 58%, 95% 0, 97.5% 69%, 100% 0 );
+        }
+         .section-1:after {
+             background: black;
+             content: "";
+             height: 100px;
+             position: absolute;
+             top: 100%;
+             left: 0;
+             right: 0;
+             clip-path: polygon( 0 0, 2.5% 60%, 5% 0, 7.5% 70%, 10% 0, 12.5% 55%, 15% 0, 17.5% 40%, 20% 0, 22.5% 69%, 25% 0, 27.5% 88%, 30% 0, 32.5% 78%, 35% 0, 37.5% 69%, 40% 0, 42.5% 65%, 45% 0, 47.5% 73%, 50% 0, 52.5% 45%, 55% 0, 57.5% 72%, 60% 0, 62.5% 69%, 65% 0, 67.5% 62%, 70% 0, 72.5% 50%, 75% 0, 77.5% 73%, 80% 0, 82.5% 99%, 85% 0, 87.5% 72%, 90% 0, 92.5% 58%, 95% 0, 97.5% 69%, 100% 0 );
+        }
+         .section-2, .section-3 {
+             margin-top: 70px;
+             min-height: 50vh;
+        }
+         .section-3 {
+             background-color: black;
+             color: white;
+             min-height: 50vh;
+             position: relative;
+        }
+         .section-3:after {
+             background: black;
+             content: "";
+             height: 100px;
+             position: absolute;
+             bottom: 100%;
+             left: 0;
+             right: 0;
+             -webkit-transform: rotate(180deg);
+             -moz-transform: rotate(180deg);
+             -ms-transform: rotate(180deg);
+             -o-transform: rotate(180deg);
+             transform: rotate(180deg);
+             clip-path: polygon( 0 0, 2.5% 60%, 5% 0, 7.5% 70%, 10% 0, 12.5% 55%, 15% 0, 17.5% 40%, 20% 0, 22.5% 69%, 25% 0, 27.5% 88%, 30% 0, 32.5% 78%, 35% 0, 37.5% 69%, 40% 0, 42.5% 65%, 45% 0, 47.5% 73%, 50% 0, 52.5% 45%, 55% 0, 57.5% 72%, 60% 0, 62.5% 69%, 65% 0, 67.5% 62%, 70% 0, 72.5% 50%, 75% 0, 77.5% 73%, 80% 0, 82.5% 99%, 85% 0, 87.5% 72%, 90% 0, 92.5% 58%, 95% 0, 97.5% 69%, 100% 0 );
+        }
+         html, body {
+             padding: 0;
+             margin: 0;
+        }
+         svg {
+             -webkit-transform: rotate(180deg);
+             -moz-transform: rotate(180deg);
+             -ms-transform: rotate(180deg);
+             -o-transform: rotate(180deg);
+             transform: rotate(180deg);
+        }
+         .wave {
+             position: absolute;
+             left: 0;
+             right: 0;
+             top: 0;
+             bottom: 0;
+             z-index: 1;
+        }
+         .credit {
+             font-size: 1.5rem;
+        }
+         .glitch {
+             color: white;
+             position: relative;
+        }
+         @keyframes noise-anim {
+             0% {
+                 clip: rect(49px, 9999px, 72px, 0);
+            }
+             5% {
+                 clip: rect(52px, 9999px, 90px, 0);
+            }
+             10% {
+                 clip: rect(7px, 9999px, 20px, 0);
+            }
+             15% {
+                 clip: rect(60px, 9999px, 3px, 0);
+            }
+             20% {
+                 clip: rect(54px, 9999px, 18px, 0);
+            }
+             25% {
+                 clip: rect(5px, 9999px, 39px, 0);
+            }
+             30% {
+                 clip: rect(83px, 9999px, 42px, 0);
+            }
+             35% {
+                 clip: rect(9px, 9999px, 19px, 0);
+            }
+             40% {
+                 clip: rect(6px, 9999px, 81px, 0);
+            }
+             45% {
+                 clip: rect(50px, 9999px, 18px, 0);
+            }
+             50% {
+                 clip: rect(65px, 9999px, 9px, 0);
+            }
+             55% {
+                 clip: rect(14px, 9999px, 93px, 0);
+            }
+             60% {
+                 clip: rect(64px, 9999px, 5px, 0);
+            }
+             65% {
+                 clip: rect(46px, 9999px, 76px, 0);
+            }
+             70% {
+                 clip: rect(51px, 9999px, 52px, 0);
+            }
+             75% {
+                 clip: rect(97px, 9999px, 13px, 0);
+            }
+             80% {
+                 clip: rect(76px, 9999px, 86px, 0);
+            }
+             85% {
+                 clip: rect(73px, 9999px, 60px, 0);
+            }
+             90% {
+                 clip: rect(33px, 9999px, 100px, 0);
+            }
+             95% {
+                 clip: rect(25px, 9999px, 63px, 0);
+            }
+             100% {
+                 clip: rect(13px, 9999px, 65px, 0);
+            }
+        }
+         .glitch:after {
+             content: attr(data-text);
+             position: absolute;
+             left: 2px;
+             text-shadow: -1px 0 red;
+             top: 0;
+             color: white;
+             overflow: hidden;
+             clip: rect(0, 900px, 0, 0);
+             animation: noise-anim 2s infinite linear alternate-reverse;
+        }
+         @keyframes noise-anim-2 {
+             0% {
+                 clip: rect(69px, 9999px, 70px, 0);
+            }
+             5% {
+                 clip: rect(28px, 9999px, 64px, 0);
+            }
+             10% {
+                 clip: rect(14px, 9999px, 72px, 0);
+            }
+             15% {
+                 clip: rect(81px, 9999px, 51px, 0);
+            }
+             20% {
+                 clip: rect(29px, 9999px, 26px, 0);
+            }
+             25% {
+                 clip: rect(78px, 9999px, 100px, 0);
+            }
+             30% {
+                 clip: rect(6px, 9999px, 97px, 0);
+            }
+             35% {
+                 clip: rect(75px, 9999px, 45px, 0);
+            }
+             40% {
+                 clip: rect(26px, 9999px, 96px, 0);
+            }
+             45% {
+                 clip: rect(42px, 9999px, 94px, 0);
+            }
+             50% {
+                 clip: rect(9px, 9999px, 50px, 0);
+            }
+             55% {
+                 clip: rect(17px, 9999px, 47px, 0);
+            }
+             60% {
+                 clip: rect(67px, 9999px, 45px, 0);
+            }
+             65% {
+                 clip: rect(78px, 9999px, 79px, 0);
+            }
+             70% {
+                 clip: rect(28px, 9999px, 48px, 0);
+            }
+             75% {
+                 clip: rect(97px, 9999px, 47px, 0);
+            }
+             80% {
+                 clip: rect(91px, 9999px, 77px, 0);
+            }
+             85% {
+                 clip: rect(86px, 9999px, 84px, 0);
+            }
+             90% {
+                 clip: rect(25px, 9999px, 15px, 0);
+            }
+             95% {
+                 clip: rect(70px, 9999px, 52px, 0);
+            }
+             100% {
+                 clip: rect(24px, 9999px, 51px, 0);
+            }
+        }
+         .glitch:before {
+             content: attr(data-text);
+             position: absolute;
+             left: -2px;
+             text-shadow: 1px 0 blue;
+             top: 0;
+             color: white;
+             overflow: hidden;
+             clip: rect(0, 900px, 0, 0);
+             animation: noise-anim-2 3s infinite linear alternate-reverse;
+        }
+         .waviy {
+             position: relative;
+             margin-left: 0.55rem;
+             margin-right: 0.55rem;
+        }
+         .waviy span {
+             position: relative;
+             display: inline-block;
+             color: #fff;
+             margin-left: -0.45rem;
+             margin-right: -0.45rem;
+             animation: flipY 2s infinite;
+             animation-delay: calc(0.2s * var(--i));
+        }
+         @keyframes flipY {
+             0%, 80% {
+                 transform: rotateY(360deg);
+            }
+        }
+         .bouncy {
+             position: relative;
+             margin-left: 0.55rem;
+             margin-right: 0.55rem;
+        }
+         .bouncy span {
+             position: relative;
+             display: inline-block;
+             color: #fff;
+             margin-left: -0.45rem;
+             margin-right: -0.45rem;
+             animation: bouncy 1s infinite;
+             animation-delay: calc(0.1s * var(--i));
+        }
+         .glitchclrs {
+             animation: chngclrs 10s infinite;
+        }
+         @keyframes chngclrs {
+             0% {
+                 color: white;
+            }
+             50% {
+                 color: coral;
+            }
+        }
+         @keyframes bouncy {
+             0%, 40%, 100% {
+                 transform: translateY(0);
+            }
+             20% {
+                 transform: translateY(-20px);
+            }
+        }
+         .credit_i span {
+             margin-left: -0.15rem;
+             margin-right: -0.15rem;
+             animation: light 3s infinite;
+             animation-delay: calc(0.1s * var(--i));
+        }
+         @-webkit-keyframes light {
+             0% {
+                 color: #fff;
+                 text-shadow: none;
+            }
+             90% {
+                 color: #fff;
+                 text-shadow: none;
+            }
+             100% {
+                 color: #f1c40f;
+                 text-shadow: 0 0 1rem #d35400, 0 0 7rem #d35400;
+            }
+        }
+         .rain {
+             position: absolute;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: 9999;
+        }
+         .rain.back-row {
+             top: 60px;
+             opacity: 0.5;
+        }
+         .drop {
+             position: absolute;
+             bottom: 100%;
+             width: 15px;
+             height: 120px;
+             pointer-events: none;
+             animation: drop 0.5s linear infinite;
+        }
+         @keyframes drop {
+             0% {
+                 transform: translateY(0vh);
+            }
+             75% {
+                 transform: translateY(90vh);
+            }
+             100% {
+                 transform: translateY(90vh);
+            }
+        }
+         .stem {
+             width: 1px;
+             height: 60%;
+             margin-left: 7px;
+             background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+             animation: stem 0.5s linear infinite;
+        }
+         @keyframes stem {
+             0% {
+                 opacity: 1;
+            }
+             65% {
+                 opacity: 1;
+            }
+             75% {
+                 opacity: 0;
+            }
+             100% {
+                 opacity: 0;
+            }
+        }
+         .splat {
+             width: 15px;
+             height: 10px;
+             border-top: 2px dotted rgba(255, 255, 255, 0.5);
+             border-radius: 50%;
+             opacity: 1;
+             transform: scale(0);
+             animation: splat 0.5s linear infinite;
+             display: none;
+        }
+         @keyframes splat {
+             0% {
+                 opacity: 1;
+                 transform: scale(0);
+            }
+             80% {
+                 opacity: 1;
+                 transform: scale(0);
+            }
+             90% {
+                 opacity: 0.5;
+                 transform: scale(1);
+            }
+             100% {
+                 opacity: 0;
+                 transform: scale(1.5);
+            }
+        }
+         .cursor {
+             display: none;
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: var(--width);
+             height: var(--height);
+             transform: translate(calc(var(--x) - var(--width) / 2), calc(var(--y) - var(--height) / 2));
+             transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+             transition-property: width, height, transform;
+             transition: 150ms width cubic-bezier(0.39, 0.575, 0.565, 1), 150ms height cubic-bezier(0.39, 0.575, 0.565, 1), 150ms transform cubic-bezier(0.39, 0.575, 0.565, 1);
+             z-index: 99999;
+             pointer-events: none;
+             will-change: transform;
+        }
+         @media (pointer: fine) {
+             .cursor {
+                 display: block;
+            }
+        }
+         .cursor::after {
+             content: "";
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             border-radius: var(--radius);
+             border: 3px solid #f1c40f;
+             opacity: var(--scale);
+             -webkit-transform: scale(var(--scale));
+             transform: scale(var(--scale));
+             transition: 300ms opacity cubic-bezier(0.39, 0.575, 0.565, 1), 300ms transform cubic-bezier(0.39, 0.575, 0.565, 1), 150ms border-radius cubic-bezier(0.39, 0.575, 0.565, 1);
+        }
+         html:not(html:hover) .cursor::after {
+             opacity: 0;
+             transform: scale(0);
+        }
+         html {
+             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>☠️</text></svg>") 16 0, auto;
+        }
+      </style>
+   </head>
+   <body>
+      <div class="rain back-row"></div>
+      <div class="cursor"></div>
+
+      <section class="section-1 text-center">
+         <svg class="wave" height="85%" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs></defs>
+            <path id="wave1" d="" />
+         </svg>
+         <svg class="wave" height="60%" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs></defs>
+            <path id="wave2" d="" />
+         </svg>
+         <svg class="wave" height="35%" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs></defs>
+            <path id="wave3" d="" />
+         </svg>
+         <h1 class="wave titleh1 font-medium leading-tight text-7xl mb-2">
+            <br />
+            <br />
+            <span class="bouncy">
+               <span style="--i: 1;">T</span>
+               <span style="--i: 2;">h</span>
+               <span style="--i: 3;">e</span>
+               <span style="--i: 4;">y</span>
+            </span>
+            <span class="waviy">
+               <span style="--i: 1;">B</span>
+               <span style="--i: 2;">o</span>
+               <span style="--i: 3;">t</span>
+               <span style="--i: 4;">h</span>
+            </span>
+            <span class="glitch" data-text="Die"><b>Die</b></span><br />
+            <span class="waviy">
+               <span style="--i: 5;">A</span>
+               <span style="--i: 6;">t</span>
+            </span>
+            <span class="bouncy">
+               <span style="--i: 5;">T</span>
+               <span style="--i: 6;">h</span>
+               <span style="--i: 7;">e</span>
+            </span>
+            <span class="glitch" data-text="End"><b>End</b></span> 💀<br />
+            <span class="credit">
+               <i class="credit_i">
+                  <span style="--i: 1;">📚</span>&nbsp;
+                  <span style="--i: 2;">B</span>
+                  <span style="--i: 3;">o</span>
+                  <span style="--i: 4;">o</span>
+                  <span style="--i: 5;">k</span>&nbsp;
+                  <span style="--i: 6;">S</span>
+                  <span style="--i: 7;">l</span>
+                  <span style="--i: 8;">a</span>
+                  <span style="--i: 9;">m</span>&nbsp;
+                  <span style="--i: 10;">P</span>
+                  <span style="--i: 11;">r</span>
+                  <span style="--i: 12;">o</span>
+                  <span style="--i: 13;">j</span>
+                  <span style="--i: 14;">e</span>
+                  <span style="--i: 15;">c</span>
+                  <span style="--i: 16;">t</span>&nbsp;
+                  <span style="--i: 17;">B</span>
+                  <span style="--i: 18;">y</span>&nbsp;
+                  <span style="--i: 19;">D</span>
+                  <span style="--i: 20;">h</span>
+                  <span style="--i: 21;">e</span>
+                  <span style="--i: 22;">i</span>
+                  <span style="--i: 23;">r</span>
+                  <span style="--i: 24;">y</span>
+                  <span style="--i: 25;">a</span>&nbsp;
+                  <span style="--i: 26;">T</span>
+                  <span style="--i: 27;">y</span>
+                  <span style="--i: 28;">a</span>
+                  <span style="--i: 29;">g</span>
+                  <span style="--i: 30;">i</span>
+               </i>
+            </span>
+         </h1>
+      </section>
+      <section class="section-2 px-4 text-center container max-w-5xl mx-auto">
+         <h2 class="font-medium leading-tight text-4xl pt-5 mb-4"><b>General Information</b></h2>
+         <p class="text-left mb-8 text-lg" style="font-size: 20px;line-height: 35px;padding: 0 10px;">
+             <i>"They Both Die at the End" by Adam Silvera</i>, is a dark young adult novel where the two main characters, Mateo and Rufus, are both informed by Death-Cast that they will die in the next 24 hours. The two opposite-seeming characters then meet up through an app on their phones, and they then spend their last day together whilst growing a bond with each other. As the story progresses, the two begin to grow feelings towards each other and it then ends, quite literally, with them dying.<br/><br/>
+             The structure of the novel is a very interesting structure. The book is divided into major sections, and those sections are divided into chapters that are described in first person between the main characters and side characters. This interesting structure helps the readers understand exactly how the characters feel about each other and react to each other, providing greater insight onto their character and personality.
+					   <br/><br/><br/>
+         </p>
+      </section>
+      <section class="section-3 px-4 text-center">
+         <div class="container max-w-5xl mx-auto">
+             <h2 class="font-medium leading-tight text-4xl pt-5 mb-4"><b>Symbolism</b></h2>
+             <p class="text-left mb-8 text-lg" style="font-size: 20px;line-height: 35px;padding: 0 10px;">
+                Through the use of odd objects and continual emphasition on random objects/ideas, Silvera solidifies the overall message of the book and the overall relationship between the characters.<br/><br/>
+                <b>Coke/Pepsi War</b><br/>
+                <span>&nbsp;&nbsp;&nbsp;Throughout the novel, the author subtly includes a Coke v Pepsi “war” in the visual elements described by the characters. For example, while Rufus and Mateo are walking under a bridge towards the Evergreens Cemetery, Rufus notices a “graffiti of a Pepsi bottle beating the crap out of a Coca-Cola bottle.” Throughout the story, Silvera subtly references this “war” to emphasize the relationship dynamics between Rufus and Mateo. At first glance, Rufus and Mateo seem like opposites personality-wise, just like Pepsi and Coke are owned by different companies and are different. But, they both come together and are more related than they thought, just as Pepsi and Coke are both just soda, and both work together in some circumstances. The author includes this “war” to subtly emphasize how Rufus and Mateo seem like opposites and are not compatible, yet they’re still tied together and are more alike than at first glance.</span>
+                <br/><br/>
+                <b>Pluto Solar System</b><br/>
+                <span>&nbsp;&nbsp;&nbsp;In the novel, Rufus is from the “Pluto Solar System”, which is basically his group of friends from his foster home. This name symbolizes Rufus, and how his death is causing him to leave the solar system. He was the leader of the group by the name, and he was one of the “planets” (friends in the group), but now he’s not and he’s dying. Just as Pluto was demoted from a planet, Rufus is dying and leaving his status as a planet. But, even though Rufus is dead and Pluto isn’t a planet anymore, Rufus will still forever be in their hearts and minds, just like how Pluto is still in the solar system.</span>
+             	  <br/><br/><br/>
+						 </p>
+         </div>
+         <div class="bottom-spikes"></div>
+      </section>
+      <section class="section-2 px-4 text-center container max-w-5xl mx-auto">
+         <h2 class="font-medium leading-tight text-4xl pt-5 mb-4"><b>Windows & Mirrors</b></h2>
+         <p class="text-left mb-8 text-lg" style="font-size: 20px;line-height: 35px;padding: 0 10px;">
+             <b>Mirrors</b><br/>
+             <span>&nbsp;&nbsp;&nbsp;Personality: In the novel, Mateo is very shy, and insecure, which I can relate to in some situations. Sometimes, I feel like I am also very shy and insecure, which helps me connect and understand how Mateo is feeling on a deeper level. But, I also can connect with Rufus. I’m not outgoing all the time, but when I’m around my friends and with people, I know, then I’m outgoing and confident. I’m also very rough in some circumstances, which I can connect to with Rufus.</span>
+             <br/><span>&nbsp;&nbsp;&nbsp;Gender: In the novel, the main characters are male and thus, they have very generalized male thoughts and a more male style of thinking. They aren’t masculine in the traditional sense, but their thoughts and how they think of the world and others is a very male style of thinking, which I can connect with.</span>
+					   <br/><br/>
+             <b>Windows</b><br/>
+             <span>&nbsp;&nbsp;&nbsp;Death: A big window is the fact of death itself. Mateo and Rufus both know they’re going to die, and they both know they have about a day left before they are dead. This concept is very interesting and something I cannot obviously relate to because I’m not going to die soon (hopefully), and I’m not going to know when I’m going to die, which is why this is a window to me.</span>
+             <br/><span>&nbsp;&nbsp;&nbsp;Sexual Orientation: In the novel, it seems that Mateo and Rufus are bisexual, as shown through the fact that they have had girlfriends, and because they fall in love with each other by the end of the novel. This is a window for me personally because I’m not bisexual so it’s interesting to see how they navigate their feelings and how they acted.</span>
+         		 <br/><br/><br/>
+				 </p>
+      </section>
+      <section class="section-3 px-4 text-center">
+		      <div class="container max-w-5xl mx-auto">
+	         <h2 class="font-medium leading-tight text-4xl pt-5 mb-4"><b>Theme</b></h2>
+	         <p class="text-left mb-8 text-lg" style="font-size: 20px;line-height: 35px;padding: 0 10px;">
+               <b>Live Life to the Fullest</b><br/>
+                <span>&nbsp;&nbsp;&nbsp;A theme that is ever present in the novel through the characters is the theme of living life to the fullest. In the beginning, the main characters are both not happy with their life and depressed- Mateo is depressed because of his minimal social life & his dad; Rufus is depressed because of Aimee & the police. However, after they receive their last day call, they ironically realize how their life is incomplete and they start to live it and start to have fun. As the day reaches an end however, the two are both disappointed at the fact that this was the last day of their life, and the only day where they actually lived it. Both Rufus and Mateo by the end regret not living their life before finding out they were dead, which solidifies the idea that people should constantly try to live their life to the fullest or they might regret it later on. Life isn't forever, so you might as well live it.</span>
+                <br/><br/>
+               <b>Influence Of Electronics</b><br/>
+                <span>&nbsp;&nbsp;&nbsp;Silvera continually emphasizes the great positive and negative influence of social media and technology as a whole. In the story, the two main characters meet up through an app called the "Last Friends" app, which has a positive influence on society. But, there are also apps that exist like the app the rewarded Deckers who committed suicide in "funny" ways. This obviously has a negative effect on society, as it pushes people to want to commit suicide and win the reward, rather than live their last day happily. This negative/positive effect of technology on society theme is actually something that can be reflected in our society. Instagram for example is a great app to see the world and see what friends are doing, but it also has the negative effect of creating anxiety and depression in some.</span>
+                <br/><br/><br/>
+	         </p>
+	         <div class="bottom-spikes"></div>
+				 </div>
+      </section>
+      <section class="section-2 px-4 text-center container max-w-5xl mx-auto">
+         <h2 class="font-medium leading-tight text-4xl pt-5 mb-4"><b>Power</b></h2>
+         <p class="text-left mb-8 text-lg" style="font-size: 20px;line-height: 35px;padding: 0 10px;">
+            <b>Power Hierarchy</b><br/>
+             <span>&nbsp;&nbsp;&nbsp;1. Death</span><br/>
+             <span>&nbsp;&nbsp;&nbsp;2. Death Cast & The Leaders of Death Cast</span><br/>
+             <span>&nbsp;&nbsp;&nbsp;3. Police/Gang</span><br/>
+             <span>&nbsp;&nbsp;&nbsp;4. Emotions - The Dad, Aimee, Rufus's Parents</span><br/>
+             <span>&nbsp;&nbsp;&nbsp;5. Rufus & Mateo</span><br/>
+            <br/><br/>
+            <b>Power Dynamics</b><br/>
+            <span>&nbsp;&nbsp;&nbsp;The highest power in the book is death. This power pushes both Rufus and Mateo to start living their life and have fun. The next power is death cast and the leaders of death cast, as they are the ones who communicate and tell people about death. The next power is held by the police for Rufus, and the dad for Mateo. Mateo's dad continually brings him back to him and in a way, limited how much he lived his life before Death cast. In Rufus's case, the police push Rufus to stay out of trouble and away from his friends. It also pushed him to hang out and stay with Mateo in the beginning, probably because he knew he was still getting chased by the police and Mateo would help him stay away from them. This is also why Rufus code-switches with Mateo at the beginning of their relationship; so he can stay with Mateo and stay away from the police.</span>
+            <br/><br/>
+            <b>Code Switching</b><br/>
+            <span>&nbsp;&nbsp;&nbsp;Throughout the beginning of the novel, Rufus continually acts/talks differently with Mateo then with his friends. When Rufus is with his friends, he is more rough, violent, and more dirty-mouthed. However, when Rufus is with Mateo, he tries to act innocent, gentle, and generally doesn't curse. This is why he doesn't tell Mateo about Peck, or much about himself. It's also why he kind of just followed Mateo and did what he wanted to do, rather than do what he wanted to do. The reason Rufus does this code-switching is because of the threat he faced from the police, and staying with Mateo would help him stay away from the police and thus out of trouble.</span>
+            <br/><br/><br/>
+       </p>
+      </section>
+      <section class="section-3 px-4 text-center">
+		      <div class="container max-w-5xl mx-auto">
+	         <h2 class="font-medium leading-tight text-4xl pt-5 mb-4"><b>Recommendations</b></h2>
+	         <p class="text-left mb-8 text-lg" style="font-size: 20px;line-height: 35px;padding: 0 10px;">
+	            This book by Silvera is a very entertaining book for people who are fans of darker books exploring life and the importance of living life. The novel is a fun read with lots of character change and character relationships. However, this novel is not an action-packed book, and is actually quite slow in the plot and action, which may be a turn off to some. The story provides great themes and especially emphasize the realization that life is limited and should be lived to it's fullest. After reading this book, readers will feel inspired to live their life like it's their last, just like Mateo & Rufus did.
+                <br/>
+                 <center><span style="font-size: 50px"><b>The <span class="glitch" data-text="End">End</span> 💀</b></span></center>
+                 <br/><br/>
+	         </p>
+				 </div>
+      </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/peacepostman/wavify/wavify.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+         wavify(document.querySelector("#wave1"), {
+            height: 20,
+            bones: 5,
+            amplitude: 45,
+            color: "rgb(16, 16, 16)",
+            speed: 0.45,
+         });
+         wavify(document.querySelector("#wave2"), {
+            height: 40,
+            bones: 4,
+            amplitude: 60,
+            color: "rgba(48, 48, 48, 0.7)",
+            speed: 0.35,
+         });
+         wavify(document.querySelector("#wave3"), {
+            height: 60,
+            bones: 3,
+            amplitude: 70,
+            color: "rgba(96, 96, 96, 0.4)",
+            speed: 0.25,
+         });
+         var makeItRain = function () {
+            $(".rain").empty();
+            var increment = 0;
+            var drops = "";
+            var backDrops = "";
+            while (increment < 100) {
+               var randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
+               var randoFiver = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+               increment += randoFiver;
+               drops +=
+                  '<div class="drop" style="left: ' +
+                  increment +
+                  "%; bottom: " +
+                  (randoFiver + randoFiver - 1 + 100) +
+                  "%; animation-delay: 0." +
+                  randoHundo +
+                  "s; animation-duration: 0.5" +
+                  randoHundo +
+                  's;"><div class="stem" style="animation-delay: 0.' +
+                  randoHundo +
+                  "s; animation-duration: 0.5" +
+                  randoHundo +
+                  's;"></div><div class="splat" style="animation-delay: 0.' +
+                  randoHundo +
+                  "s; animation-duration: 0.5" +
+                  randoHundo +
+                  's;"></div></div>';
+               backDrops +=
+                  '<div class="drop" style="right: ' +
+                  increment +
+                  "%; bottom: " +
+                  (randoFiver + randoFiver - 1 + 100) +
+                  "%; animation-delay: 0." +
+                  randoHundo +
+                  "s; animation-duration: 0.5" +
+                  randoHundo +
+                  's;"><div class="stem" style="animation-delay: 0.' +
+                  randoHundo +
+                  "s; animation-duration: 0.5" +
+                  randoHundo +
+                  's;"></div><div class="splat" style="animation-delay: 0.' +
+                  randoHundo +
+                  "s; animation-duration: 0.5" +
+                  randoHundo +
+                  's;"></div></div>';
+            }
+            $(".rain.front-row").append(drops);
+            $(".rain.back-row").append(backDrops);
+         };
+         makeItRain();
+         window.location = "#";
+         const updateProperties = (elem, state) => {
+            elem.style.setProperty("--x", `${state.x - 1}px`);
+            elem.style.setProperty("--y", `${state.y + 15}px`);
+            elem.style.setProperty("--width", `${state.width}px`);
+            elem.style.setProperty("--height", `${state.height}px`);
+            elem.style.setProperty("--radius", state.radius);
+            elem.style.setProperty("--scale", state.scale);
+         };
+         document.querySelectorAll(".cursor").forEach((cursor) => {
+            let onElement;
+            const createState = (e) => {
+               const defaultState = {
+                  x: e.clientX,
+                  y: e.clientY,
+                  width: 50,
+                  height: 50,
+                  radius: "50%",
+               };
+               const computedState = {};
+               if (onElement != null) {
+                  const { top, left, width, height } = onElement.getBoundingClientRect();
+                  const radius = window.getComputedStyle(onElement).borderTopLeftRadius;
+                  computedState.x = left + width / 2;
+                  computedState.y = top + height / 2;
+                  computedState.width = width;
+                  computedState.height = height;
+                  computedState.radius = radius;
+               }
+               return {
+                  ...defaultState,
+                  ...computedState,
+               };
+            };
+            document.addEventListener("mousemove", (e) => {
+               const state = createState(e);
+               updateProperties(cursor, state);
+            });
+            document.querySelectorAll("a, button").forEach((elem) => {
+               elem.addEventListener("mouseenter", () => (onElement = elem));
+               elem.addEventListener("mouseleave", () => (onElement = undefined));
+            });
+         });
+      </script>
+   </body>
+</html>
